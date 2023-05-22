@@ -8,7 +8,6 @@ require('dotenv').config();
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
-
 const app = express();
 
 // view engine setup
@@ -21,8 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 require('./business/binance');
+require('./business/price-action');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
